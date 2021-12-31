@@ -5,7 +5,7 @@ import os
 from datetime import date,datetime
 import numpy as np
 
-from run_object_detection import run_object_detection_play
+from object_detection_app import run_object_detection_play
 
 # 디렉토리 정보와 파일을 알려주면, 해당 디렉토리에
 # 파일을 저장하는 함수를 만들겁니다.
