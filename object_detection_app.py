@@ -104,7 +104,8 @@ def run_object_detection_play():
             min_score_thresh=thresh/100,
             agnostic_mode=False)
         
-        st.image(image_np_with_detections)
+        img=Image.fromarray(image_np_with_detections)
+        st.image(img,use_column_width=True)
         
 
         
