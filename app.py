@@ -33,6 +33,9 @@ def main():
         for file in uploaded_files :
             save_uploaded_file('temp_files',file)
             
+    menu = ['ssd_mobilenet_v2_320x320_coco17_tpu-8','ssd_mobilenet_v1_fpn_640x640_coco17_tpu-8',
+            'ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8','ssd_mobilenet_v2_fpnlite_640x640_coco17_tpu-8']
+    select_model = st.sidebar.radio('모델 선택',menu)
     if st.button('실행'):
         PATH_TO_LABELS = 'C:\\Users\\user12\\Documents\\TensorFlow\\models\\research\\object_detection\\data\\mscoco_label_map.pbtxt'
         category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS)
@@ -46,7 +49,7 @@ def main():
             return str(model_dir)
 
         MODEL_DATE = '20200711'
-        MODEL_NAME = 'ssd_mobilenet_v2_320x320_coco17_tpu-8'
+        MODEL_NAME = select_model
         PATH_TO_MODEL_DIR = download_model(MODEL_NAME, MODEL_DATE)
 
         def load_model(model_dir):
