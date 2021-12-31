@@ -15,8 +15,6 @@ from datetime import datetime
 def run_object_detection_play():
     st.title('Tensorflow Object Detection')
     
-            
-            
     image_file = st.file_uploader("이미지를 업로드 하세요", type=['png','jpg','jpeg'])
     if image_file is not None :
         # 프린트문은 디버깅용으로서, 터미널에 출력한다.
@@ -28,6 +26,7 @@ def run_object_detection_play():
         # 파일명을, 현재시간의 조합으로 해서 만들어보세요.
         # 현재시간.jpg
         thresh = st.sidebar.slider('모델 정확도 설정',0,100,value=50)
+        st.subheader('모델 하나를 선택 해주세요')
         model_choice=st.radio('모델 선택',['ssd_mobilenet_v2_fpnlite_640x640_coco17_tpu-8','ssd_mobilenet_v2_320x320_coco17_tpu-8','ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8'])
         current_time = datetime.now()
         print(current_time)
@@ -100,4 +99,5 @@ def run_object_detection_play():
             img = Image.fromarray(image_np_with_detections)
             st.image(img,use_column_width=True)
 
+        st.subheader('결과')
         show_inference(detection_model, img)
