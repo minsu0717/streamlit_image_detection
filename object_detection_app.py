@@ -103,7 +103,7 @@ def run_object_detection_play():
             max_boxes_to_draw=200,
             min_score_thresh=thresh/100,
             agnostic_mode=False)
-        
+        st.subheader('결과')
         img=Image.fromarray(image_np_with_detections)
         st.image(img,use_column_width=True)
         
